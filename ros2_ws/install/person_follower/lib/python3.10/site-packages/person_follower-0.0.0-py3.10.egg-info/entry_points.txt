@@ -1,0 +1,3 @@
+[console_scripts]
+import_image = person_follower.import_image:main
+
