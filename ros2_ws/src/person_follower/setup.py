@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'person_follower = person_follower.person_follower:main',
             'import_image = person_follower.import_image:main'
         ],
     },

@@ -9,9 +9,10 @@ setup.py
 ../../build/person_follower/person_follower.egg-info/requires.txt
 ../../build/person_follower/person_follower.egg-info/top_level.txt
 ../../build/person_follower/person_follower.egg-info/zip-safe
-person_follower/__init__.py
-person_follower/import_image.py
 resource/person_follower
+src/__init__.py
+src/import_image.py
+src/person_follower.py
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
