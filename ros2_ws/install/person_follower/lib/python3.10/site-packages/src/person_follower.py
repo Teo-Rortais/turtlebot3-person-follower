@@ -22,10 +22,10 @@ class PersonFollower(Node):
         self.get_logger().info("Publisher to cmd_vel topic created.")
         
         # Initialize the AI from Jetson Inference
-        self.net = detectNet("ssd-mobilenet-v2", threshold=0.7)
+        self.net = detectNet("ssd-mobilenet-v2", threshold=0.6)
         self.net.SetTrackingEnabled(True)
         self.tracker = None
-        self.display = videoOutput("display://0")
+        self.display = videoOutput("my_video.mp4")      #display://0
         self.get_logger().info("AI initialized.")
 
     def image_callback(self, msg):
@@ -37,6 +37,7 @@ class PersonFollower(Node):
             # Convert ROS CompressedImage message to OpenCV image
             np_arr = np.frombuffer(msg.data, np.uint8)
             img = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
+            img_center_x = img.shape[1] // 2
 
             # Verify if the image is correctly decoded
             if img is None:
@@ -58,15 +59,19 @@ class PersonFollower(Node):
                         # Get center coordinates of the tracked object
                         center = detection.Center
                         self.get_logger().info(f"Tracking object with ID {self.tracker}: Center ({center[0]}) / {img.shape[1]}")
-                        if center[0] < img.shape[1]*2/5:
-                            self.get_logger().info("LEFT")
-                            twist.angular.z = 0.5
-                        elif center[0] > img.shape[1]*3/5:
-                            self.get_logger().info("RIGHT")
-                            twist.angular.z = -0.5
-                        else:
-                            self.get_logger().info("CENTER")
-                            twist.angular.z = 0.0
+                        # twist.angular.z = (center[0] - img_center_x)*0.2
+                        twist.angular.z = -(center[0] - img_center_x)*0.008
+                        self.get_logger().info(f"MOUVEMENT : {img_center_x} --- {twist.angular.z}")
+                        self.get_logger().info("MVT : {center[0]} - {img.shape[1]}")
+                        #if center[0] < img.shape[1]*2/5:
+                        #    self.get_logger().info("LEFT")
+                        #    twist.angular.z = 0.5
+                        #elif center[0] > img.shape[1]*3/5:
+                        #    self.get_logger().info("RIGHT")
+                        #    twist.angular.z = -0.5
+                        #else:
+                        #    self.get_logger().info("CENTER")
+                        #    twist.angular.z = 0.0
                         tracked = True
                         break
                 if not tracked:

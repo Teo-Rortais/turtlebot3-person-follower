@@ -1,0 +1,26 @@
+[1.398s] Invoking command in '/home/orinnano/turtlebot3-person-follower/ros2_ws/src/person_follower': PYTHONPATH=/home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/person_follower build --build-base /home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/build install --record /home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/install.log --single-version-externally-managed install_data
+[1.913s] running egg_info
+[1.914s] writing ../../build/person_follower/person_follower.egg-info/PKG-INFO
+[1.914s] writing dependency_links to ../../build/person_follower/person_follower.egg-info/dependency_links.txt
+[1.915s] writing entry points to ../../build/person_follower/person_follower.egg-info/entry_points.txt
+[1.915s] writing requirements to ../../build/person_follower/person_follower.egg-info/requires.txt
+[1.915s] writing top-level names to ../../build/person_follower/person_follower.egg-info/top_level.txt
+[1.919s] reading manifest file '../../build/person_follower/person_follower.egg-info/SOURCES.txt'
+[1.920s] adding license file 'LICENSE'
+[1.921s] writing manifest file '../../build/person_follower/person_follower.egg-info/SOURCES.txt'
+[1.921s] running build
+[1.921s] running build_py
+[1.922s] copying src/person_follower.py -> /home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/build/lib/src
+[1.922s] running install
+[1.923s] running install_lib
+[1.925s] copying /home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/build/lib/src/person_follower.py -> /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/src
+[1.926s] byte-compiling /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/src/person_follower.py to person_follower.cpython-310.pyc
+[1.928s] running install_data
+[1.928s] running install_egg_info
+[1.932s] removing '/home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/person_follower-0.0.0-py3.10.egg-info' (and everything under it)
+[1.933s] Copying ../../build/person_follower/person_follower.egg-info to /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/person_follower-0.0.0-py3.10.egg-info
+[1.934s] running install_scripts
+[1.977s] Installing import_image script to /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/person_follower
+[1.977s] Installing person_follower script to /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/person_follower
+[1.978s] writing list of installed files to '/home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/install.log'
+[2.044s] Invoked command in '/home/orinnano/turtlebot3-person-follower/ros2_ws/src/person_follower' returned '0': PYTHONPATH=/home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/person_follower build --build-base /home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/build install --record /home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/install.log --single-version-externally-managed install_data
