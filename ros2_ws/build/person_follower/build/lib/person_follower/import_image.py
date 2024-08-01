@@ -8,21 +8,18 @@ import os
 class ImportImage(Node):
 
     def __init__(self):
-        super().__init__('image_saver')
-        self.subscription = self.create_subscription(
-            CompressedImage,
-            '/image_raw/compressed',
-            self.image_callback,
-            10)
+        super().__init__('import_image')
+        
+        # Initilalization of the subscriber to get the images from the TurtleBot
+        self.subscription = self.create_subscription(CompressedImage, '/image_raw/compressed', self.image_callback, 10)
         self.subscription  # prevent unused variable warning
         self.get_logger().info("Subscription to /image_raw/compressed topic created.")
 
-        # Create a directory to save images (optional)
-        self.save_dir = 'saved_images'
+        # Create a directory to save images
+        self.save_dir = 'src/person_follower/saved_images'
         os.makedirs(self.save_dir, exist_ok=True)
         self.get_logger().info(f"Images will be saved to: {self.save_dir}")
 
-        self.image_count = 0
 
     def image_callback(self, msg):
         self.get_logger().info("Received a new image message.")
@@ -42,7 +39,6 @@ class ImportImage(Node):
             cv2.imwrite(image_path, image)
             self.get_logger().info(f"Image saved: {image_path}")
 
-            self.image_count += 1
         except Exception as e:
             self.get_logger().error(f"Error in image_callback: {e}")
 
