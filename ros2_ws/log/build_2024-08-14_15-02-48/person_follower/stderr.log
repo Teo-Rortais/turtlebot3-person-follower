@@ -1,0 +1,5 @@
+  File "/home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/src/person_follower.py", line 66
+    if height < 300 
+                    ^
+SyntaxError: expected ':'
+

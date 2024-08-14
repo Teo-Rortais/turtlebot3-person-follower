@@ -1,0 +1,25 @@
+running egg_info
+writing ../../build/person_follower/person_follower.egg-info/PKG-INFO
+writing dependency_links to ../../build/person_follower/person_follower.egg-info/dependency_links.txt
+writing entry points to ../../build/person_follower/person_follower.egg-info/entry_points.txt
+writing requirements to ../../build/person_follower/person_follower.egg-info/requires.txt
+writing top-level names to ../../build/person_follower/person_follower.egg-info/top_level.txt
+reading manifest file '../../build/person_follower/person_follower.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/person_follower/person_follower.egg-info/SOURCES.txt'
+running build
+running build_py
+copying src/person_follower.py -> /home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/build/lib/src
+running install
+running install_lib
+copying /home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/build/lib/src/person_follower.py -> /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/src
+byte-compiling /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/src/person_follower.py to person_follower.cpython-310.pyc
+Sorry: IndentationError: unindent does not match any outer indentation level (person_follower.py, line 66)
+running install_data
+running install_egg_info
+removing '/home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/person_follower-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/person_follower/person_follower.egg-info to /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/python3.10/site-packages/person_follower-0.0.0-py3.10.egg-info
+running install_scripts
+Installing import_image script to /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/person_follower
+Installing person_follower script to /home/orinnano/turtlebot3-person-follower/ros2_ws/install/person_follower/lib/person_follower
+writing list of installed files to '/home/orinnano/turtlebot3-person-follower/ros2_ws/build/person_follower/install.log'

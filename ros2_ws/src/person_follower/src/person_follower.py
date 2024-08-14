@@ -58,20 +58,16 @@ class PersonFollower(Node):
                     if detection.TrackID == self.tracker:
                         # Get center coordinates of the tracked object
                         center = detection.Center
-                        self.get_logger().info(f"Tracking object with ID {self.tracker}: Center ({center[0]}) / {img.shape[1]}")
-                        # twist.angular.z = (center[0] - img_center_x)*0.2
-                        twist.angular.z = -(center[0] - img_center_x)*0.008
-                        self.get_logger().info(f"MOUVEMENT : {img_center_x} --- {twist.angular.z}")
-                        self.get_logger().info("MVT : {center[0]} - {img.shape[1]}")
-                        #if center[0] < img.shape[1]*2/5:
-                        #    self.get_logger().info("LEFT")
-                        #    twist.angular.z = 0.5
-                        #elif center[0] > img.shape[1]*3/5:
-                        #    self.get_logger().info("RIGHT")
-                        #    twist.angular.z = -0.5
+                        height = detection.Height
+                        self.get_logger().info(f"Tracking object with ID {self.tracker} + {height}")        
+                        twist.angular.z = np.clip(-(center[0] - img_center_x) * 0.005, -2.0, 2.0) 
+                        twist.linear.x = np.clip((height - 300) * 0.008, -1.0, 1.0)
+                        
+                        #if height < 300: 
+                        #	twist.linear.x = -0.2
                         #else:
-                        #    self.get_logger().info("CENTER")
-                        #    twist.angular.z = 0.0
+                        #        twist.linear.x = 0.2
+                                
                         tracked = True
                         break
                 if not tracked:
