@@ -25,8 +25,12 @@ class PersonFollower(Node):
         self.net = detectNet("ssd-mobilenet-v2", threshold=0.6)
         self.net.SetTrackingEnabled(True)
         self.tracker = None
-        self.display = videoOutput("my_video.mp4")      #display://0
+        self.display = videoOutput("display://0")      # If you need a video file, juste replace with my_video.mp4
         self.get_logger().info("AI initialized.")
+                    
+        # Set up the speed parameters
+        self.angular_param = 0.005 		# Needs to be between 0 and 0.00875
+        self.linear_param = 0.004		# Needs to be between 0 and 0.004
 
     def image_callback(self, msg):
         self.get_logger().info("Received a new image message.")
@@ -59,15 +63,17 @@ class PersonFollower(Node):
                         # Get center coordinates of the tracked object
                         center = detection.Center
                         height = detection.Height
-                        self.get_logger().info(f"Tracking object with ID {self.tracker} + {height}")        
-                        twist.angular.z = np.clip(-(center[0] - img_center_x) * 0.005, -2.0, 2.0) 
-                        twist.linear.x = np.clip((height - 300) * 0.008, -1.0, 1.0)
+                        self.get_logger().info(f"Tracking object with ID {self.tracker}") 
+                               
+                        # Adjust the values to send to the robot
+                        twist.angular.z = (img_center_x - center[0]) * self.angular_param  
+                        if 440 - height < 0:
+                        	twist.linear.x = (320 - height) * self.linear_param
+                        else : 
+                        	twist.linear.x = (320 - height) * self.linear_param * 1.7
                         
-                        #if height < 300: 
-                        #	twist.linear.x = -0.2
-                        #else:
-                        #        twist.linear.x = 0.2
-                                
+                        twist.linear.x = (440 - height) * linear_param
+      
                         tracked = True
                         break
                 if not tracked:
