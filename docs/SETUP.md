@@ -29,7 +29,7 @@ Plug the USB-A to USB-C cable on the Jetson and a computer with the NVIDIA SDK M
 
 Accept the terms and conditions of the license agreements and continue until step 3.
 
-![[sdk_manager_step_2.png]]
+<img src="https://github.com/Teo-Rortais/turtlebot3-person-follower/blob/main/docs/images/sdk_manager_step_2.png" width="100%">
 
 When the card is ready to be flashed, choose Pre-Config for the OEM Configuration and define a username and password. Then hit the flash button. 
 
@@ -41,7 +41,7 @@ ifconfig
 
 Find the IP address of the Jetson and come back to the SDK Manager. Fill out the informations needed and clic on the "Install" button (no need to set proxy). 
 
-![[sdk_manager_step_3.png]]
+<img src="https://github.com/Teo-Rortais/turtlebot3-person-follower/blob/main/docs/images/sdk_manager_step_3.png" width="100%">
 
 When the installation is finished you can go back to your Jetson and enter this command in a terminal :
 

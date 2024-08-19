@@ -6,12 +6,12 @@ For this project you will need to have The TurtleBot3 and the Jetson set up. And
 
 Here is what the robot looks like :
 
-| ![[robot_front.jpg]] | ![[robot_side.jpg]] |
-| :------------------- | :-----------------: |
+| <img src="https://github.com/Teo-Rortais/turtlebot3-person-follower/blob/main/docs/images/robot_front.jpg" width="100%"> | <img src="https://github.com/Teo-Rortais/turtlebot3-person-follower/blob/main/docs/images/robot_side.jpg" width="100%"> |
+| :----------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------: |
 
 The robot is able to recognize a person and determine it's position on an image. From the position the program will send a command to control the mouvements of the robot.
 
-![[person_follower_demo.gif|700]]
+<img src="https://github.com/Teo-Rortais/turtlebot3-person-follower/blob/main/docs/images/person_follower_demo.gif" width="100%">
 
 The robot will rotate to follow the person, it will also move backward if the person is too close or forward if the person is too far. The speed values can be modify in the code.
 
