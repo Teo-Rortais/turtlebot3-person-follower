@@ -1,19 +1,19 @@
 # Setting up the project 
 
-To set up the project you need to flash the Jetson with JetPack SDK Manager, build and initialize the TurtbleBot3 and install ROS on both devices. Here is a list of all the hardware, and software I used :
+To set up the project, you need to flash the Jetson with JetPack SDK Manager, build and initialize the TurtleBot3 and install ROS on both devices. Here is a list of all the hardware and software I used:
 
-### Equipement I used 
+### Equipment I used 
 
 - Jetson Orin Nano \[8GB developer kit version\]
 - TurtleBot 3 Burger Kit
 - USB Camera (C920 HD Pro Webcam from logitech)
-- Computer with the following softwares :
+- Computer with the following software:
 	- NVIDIA SDK Manager
 	- Raspberry PI Imager
 	- SD Card Formatter
 - 2 Micro SD Cards
 - Keyboard/Mouse/Screen
-- Display Port cable
+- DisplayPort cable
 - Micro HDMI cable
 - USB-A to USB-C cable
 - Jumper Wire
@@ -21,7 +21,7 @@ To set up the project you need to flash the Jetson with JetPack SDK Manager, bui
 
 ## Flash Jetson with JetPack
 
-First of all you need to format a micro SD card (you can use SD Card Formatter software) and insert it in the Jetson Orin Nano. Connect the port FC REC and GND with a jumper wire before turning the power on. If you need more guidance [here](images/jetson_recovery_mode.jpg) is an image that might help you.
+First of all, you need to format a micro SD card (you can use SD Card Formatter software) and insert it into the Jetson Orin Nano. Connect the FC REC and GND ports with a jumper wire before turning the power on. If you need more guidance [here](images/jetson_recovery_mode.jpg) is an image that might help you.
 
 Plug the USB-A to USB-C cable on the Jetson and a computer with the NVIDIA SDK Manager software. Launch the SDK Manager and connect. Since your Jetson is in recovery mode, you should be able to select it in the "Target Hardware" section. Choose "JetPack 6.0 (rev. 2)" in the "SDK Version" section and continue to step 2 (no need to download DeepStream).
 
@@ -31,19 +31,19 @@ Accept the terms and conditions of the license agreements and continue until ste
 
 <img src="https://github.com/Teo-Rortais/turtlebot3-person-follower/blob/main/docs/images/sdk_manager_step_2.png" width="100%">
 
-When the card is ready to be flashed, choose Pre-Config for the OEM Configuration and define a username and password. Then hit the flash button. 
+When the card is ready to be flashed, choose "Pre-Config" for the OEM Configuration and define a username and password. Then hit the flash button. 
 
-At one point you will have a window asking you to enter an IP address, username and password. You will have to connect to your Jetson and configure the system. When it's ready, connect the Jetson to the network and open a terminal (CTRL+ALT+T). Enter this command :
+At one point, you will have a window asking you to enter an IP address, username and password. You will have to connect to your Jetson and configure the system. When it's ready, connect the Jetson to the network and open a terminal (CTRL+ALT+T). Enter this command:
 
 ``` bash
 ifconfig
 ```
 
-Find the IP address of the Jetson and come back to the SDK Manager. Fill out the informations needed and clic on the "Install" button (no need to set proxy). 
+Find the IP address of the Jetson and come back to the SDK Manager. Fill out the information needed and click on the "Install" button (no need to set proxy). 
 
 <img src="https://github.com/Teo-Rortais/turtlebot3-person-follower/blob/main/docs/images/sdk_manager_step_3.png" width="100%">
 
-When the installation is finished you can go back to your Jetson and enter this command in a terminal :
+When the installation is finished you can go back to your Jetson and enter this command in a terminal:
 
 ``` bash
 sudo apt install nvidia-jetpack
@@ -52,13 +52,13 @@ sudo apt install nvidia-jetpack
 
 ## Build Jetson Inference Project
 
-I strongly advise you install a web browser so you can copy and paste the command instead of manually enter them. You can install Firefox with this command :
+I strongly advise you install a web browser so you can copy and paste the commands instead of manually enter them. You can install Firefox with this command:
 
 ``` bash
 sudo snap install firefox
 ```
 
-To use AI  we gonna build the Jetson Inference Project, you can follow the [guide]( https://github.com/dusty-nv/jetson-inference/blob/master/docs/building-repo-2.md) on the GitHub repository or just execute the commands bellow.
+To use AI, we are going to build the Jetson Inference Project, you can follow the [guide]( https://github.com/dusty-nv/jetson-inference/blob/master/docs/building-repo-2.md) on the GitHub repository or just execute the commands below.
 
 ``` bash
 sudo apt-get update
@@ -73,22 +73,22 @@ sudo make install
 sudo ldconfig
 ```
 
-To check if the AI works, you can run the object detection live camera demo. Just connect the USB camera to the Jetson and enter this command :
+To check if the AI works, you can run the object detection live camera demo. Just connect the USB camera to the Jetson and enter this command:
 
 ``` bash
 detectnet.py /dev/video0
 ```
 
-The first time you use this program is going to take time. The next use of it are going to be faster.
+The first time you use this program is going to take time. Subsequent uses of it will be faster.
 
 
 ## Set up TurtleBot and install ROS Humble 
 
-Remember that when building the TurtleBot, you can skip the part where you have to fix teh LDS-02, since it's our USB camera that is gonna take this spot.
+Remember that when building the TurtleBot, you can skip the part where you have to fix the LDS-02, since it's our USB camera that is going to take this spot.
 
 ### ROS on Jetson Orin Nano
 
-You can follow the [guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup) on the official website (remember to choose Humble at the top of the webpage) or you can just enter the following commands :
+You can follow the [guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup) on the official website (remember to choose Humble at the top of the webpage), or you can just enter the following commands:
 
 ``` bash
 locale  # check for UTF-8
@@ -133,17 +133,17 @@ sudo apt install ros-humble-turtlebot3
 
 ### Raspberry PI Setup
 
-You can follow the [guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup) on the official website (remember to choose Humble at the top of the webpage) or you can just do the followings :
+You can follow the [guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup) on the official website (remember to choose Humble at the top of the webpage) or you can just do the followings:
 
-Insert a  formatted micro SD card in the computer with Raspberry PI Imager installed. Open the software and choose Raspberry PI 4 (Model B) for the model of the Raspberry PI. In "Operating System" choose : Other general purpose OS -> Ubuntu -> Ubuntu Server 22.04.4 LTS (64-bit). Finally choose your micro SD card in the "Storage" section and clic on "Write".
+Insert a  formatted micro SD card in the computer with Raspberry PI Imager installed. Open the software and choose Raspberry PI 4 (Model B) for the model of the Raspberry PI. In "Operating System" choose: Other general purpose OS -> Ubuntu -> Ubuntu Server 22.04.4 LTS (64-bit). Finally choose your micro SD card in the "Storage" section and click on "Write".
 
-When your card is flashed, insert it in your TurtleBot's Raspberry. You can plug the micro HDMI cable on the HDMI 0 port and turn the power of the robot on. Connect on the ubuntu with the ID and password both being "*ubuntu*". Choose a new password and modify some files to connect to the wifi.
+When your card is flashed, insert it in your TurtleBot's Raspberry. You can plug the micro HDMI cable on the HDMI 0 port and turn the power of the robot on. Connect on the ubuntu with the ID and password both being "*ubuntu*". Choose a new password and modify some files to connect to the Wi-Fi.
 
 ``` bash
 sudo nano /etc/netplan/50-cloud-init.yaml
 ```
 
-The file should ressemble this :
+The file should resemble this:
 
 ``` yaml
 network
@@ -162,7 +162,7 @@ network
 	
 ```
 
-Save the file, then change the next file like so :
+Save the file, then change the next file like so:
 
 ``` bash
 sudo nano /etc/apt/apt.conf.d/20auto-upgrades
@@ -173,7 +173,7 @@ APT::Periodic::Update-Package-Lists "0";
 APT::Periodic::Unattended-Upgrade "0";
 ```
 
-Enter the following commands to finalize the setup :
+Enter the following commands to finalize the setup:
 
 ``` bash
 systemctl mask systemd-networkd-wait-online.service
@@ -181,19 +181,19 @@ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.ta
 reboot
 ```
 
-Find the IP address of your device :
+Find the IP address of your device:
 
 ``` bash
 ip address
 ```
 
-Then you can continue the guide from your Jetson by connecting to the robot with ssh. This way you will be able to copy paste the rest of the commands :
+Then you can continue the guide from your Jetson by connecting to the robot with SSH. This way you will be able to copy paste the rest of the commands:
 
 ``` bash
 ssh ubuntu@{IP Address of Raspberry PI}
 ```
 
-Now we need to install ROS Humble on the TurtleBot also, so we gonna follow the same step as when we did for the Jetson :
+Now we need to install ROS Humble on the TurtleBot as well, so we are going to follow the same step as when we did for the Jetson:
 
 ``` bash
 locale  # check for UTF-8
@@ -230,7 +230,7 @@ echo 'export LDS_MODEL=LDS-02' >> ~/.bashrc
 source  ~/.bashrc
 ```
 
-Once the ROS set up is complete, we need to install and build some ROS packages on the TurtleBot :
+Once the ROS set up is complete, we need to install and build some ROS packages on the TurtleBot:
 
 ``` bash
 sudo apt install python3-argcomplete python3-colcon-common-extensions libboost-system-dev build-essential
@@ -255,7 +255,7 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
-There is some additional packages we will need for the project :
+There is some additional packages we will need for the project:
 
 ``` bash
 sudo apt-get install ros-humble-v4l2-camera
@@ -265,7 +265,7 @@ sudo apt-get install ros-humble-image-transport-plugins
 
 ## OpenCR Setup
 
-You can follow the [guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/opencr_setup/#opencr-setup) on the official website (remember to choose Humble at the top of the webpage) or you can just do the followings :
+You can follow the [guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/opencr_setup/#opencr-setup) on the official website (remember to choose Humble at the top of the webpage) or you can just do the following:
 
 ``` bash
 sudo dpkg --add-architecture armhf
