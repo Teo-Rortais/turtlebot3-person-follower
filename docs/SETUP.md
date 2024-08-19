@@ -25,7 +25,7 @@ First of all you need to format a micro SD card (you can use SD Card Formatter s
 
 Plug the USB-A to USB-C cable on the Jetson and a computer with the NVIDIA SDK Manager software. Launch the SDK Manager and connect. Since your Jetson is in recovery mode, you should be able to select it in the "Target Hardware" section. Choose "JetPack 6.0 (rev. 2)" in the "SDK Version" section and continue to step 2 (no need to download DeepStream).
 
-![[sdk_manager_step_1.png]]
+<img src="https://github.com/Teo-Rortais/turtlebot3-person-follower/blob/main/docs/images/sdk_manager_step_1.png" width="100%">
 
 Accept the terms and conditions of the license agreements and continue until step 3.
 
