@@ -35,3 +35,11 @@ And on the Jetson:
 ros2 run person_follower person_follower
 ```
 
+
+# Useful links 
+
+To build this project, I primarily referred to the following resources and tutorials. Additionally, I frequently consulted various forums to navigate the errors and challenges I encountered.
+
+- Jetson-Inference repository : https://github.com/dusty-nv/jetson-inference
+- TurtleBot3 Manual : https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/
+- ROS 2 Documentation (Humble) : https://docs.ros.org/en/humble/
