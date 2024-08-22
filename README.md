@@ -29,9 +29,10 @@ ros2 launch turtlebot3_bringup robot.launch.py
 ros2 run v4l2_camera v4l2_camera_node
 ```
 
-And on the Jetson: 
+And on the Jetson, in the project directory: 
 
 ``` bash 
+source install/setup.bash
 ros2 run person_follower person_follower
 ```
 
